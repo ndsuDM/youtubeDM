@@ -1,6 +1,10 @@
+#install.packages("igraph")
 library("igraph")
 
-dd<-as.matrix(read.table("~/Documents/DM/com-youtube.ungraph.txt"))
-graph_from_edgelist(dd, directed=FALSE)
-gg<-graph_from_edgelist(cbind(dd))
-E(gg) [from(1)]
+#dd<-as.matrix(read.table("~/Documents/DM/com-youtube.ungraph.txt"))
+dd<-as.matrix(read.table("~/Documents/DM/test.txt"))
+graph_from_edgelist(dd, directed = FALSE)
+gg <- graph_from_edgelist(cbind(dd), directed = FALSE)
+print(E(gg) [from(1)])
+ebc <- cluster_edge_betweenness(gg)
+print(ebc)
